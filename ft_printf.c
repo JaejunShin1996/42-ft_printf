@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:17:29 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/07/18 15:18:11 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/07/18 17:52:27 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ int	ft_printf(const char *format, ...)
 }
 
 int	main(void)
-{
-	int	test;
-
 	test = 1234;
 	ft_printf("42 Adelaide");
 	return (0);
