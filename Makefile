@@ -4,7 +4,7 @@ TEST	= ft_printf.out
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
-SRCS	= ft_printf ft_putchar ft_strlen ft_itoa ft_putstr
+SRCS	= ft_printf ft_utils ft_itoa ft_uitoa
 
 CFILES	= $(SRCS:%=%.c)
 OFILES	= $(SRCS:%=%.o)
@@ -14,7 +14,7 @@ $(NAME):
 	ar rc $(NAME) $(OFILES)
 	
 make: $(NAME)
-	@gcc -g -L. -lftprintf $(CFILES) -o $(TEST)
+	@gcc -L. -lftprintf $(CFILES) -o $(TEST)
 	
 all: $(NAME)
 

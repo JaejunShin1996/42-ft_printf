@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 13:03:30 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/07/19 17:41:32 by jaeshin          ###   ########.fr       */
+/*   Created: 2023/07/19 17:41:07 by jaeshin           #+#    #+#             */
+/*   Updated: 2023/07/19 17:41:25 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static unsigned int	n_convert(int n)
+static unsigned int	n_convert(unsigned int n)
 {
 	unsigned int	temp;
 
@@ -24,7 +24,7 @@ static unsigned int	n_convert(int n)
 	return (temp);
 }
 
-static size_t	size_getter(int n)
+static size_t	size_getter(unsigned int n)
 {
 	size_t			size;
 	unsigned int	temp;
@@ -41,7 +41,7 @@ static size_t	size_getter(int n)
 	return (size);
 }
 
-char	*ft_itoa(int n)
+char	*ft_uitoa(unsigned int n)
 {
 	size_t			size;
 	char			*result;
