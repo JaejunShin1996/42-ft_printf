@@ -4,7 +4,7 @@ TEST	= ft_printf.out
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
-SRCS	= ft_printf ft_utils ft_itoa ft_dtoh
+SRCS	= ft_printf ft_utils ft_itoa ft_u_itoa ft_dtoh
 
 CFILES	= $(SRCS:%=%.c)
 OFILES	= $(SRCS:%=%.o)

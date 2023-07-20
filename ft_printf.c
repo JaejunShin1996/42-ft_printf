@@ -6,7 +6,7 @@
 /*   By: jaeshin <jaeshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:17:29 by jaeshin           #+#    #+#             */
-/*   Updated: 2023/07/20 14:39:13 by jaeshin          ###   ########.fr       */
+/*   Updated: 2023/07/20 18:22:05 by jaeshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,17 @@ void	ft_i_d_printf(va_list arg, int *count)
 
 void	ft_p_printf(va_list arg, int *count)
 {
-	long	p_value;
+	size_t	p_value;
 	char	*result;
-	
-	p_value = (long)va_arg(arg, void *);
+
+	p_value = (size_t)va_arg(arg, void *);
 	if (!p_value)
 	{
 		ft_putstr("0x0");
 		*count += 3;
 		return ;
 	}
-	result = ft_l_dtoh(p_value, count);
+	result = ft_pointer(p_value, count);
 	ft_putstr("0x");
 	ft_putstr(result);
 	free(result);
@@ -76,9 +76,9 @@ void	ft_u_printf(va_list arg, int *count)
 {
 	unsigned int	ui_value;
 	char			*s_value;
-	
+
 	ui_value = va_arg(arg, unsigned int);
-	s_value = ft_uitoa(ui_value);
+	s_value = ft_u_itoa(ui_value);
 	*count += ft_strlen(s_value);
 	ft_putstr(s_value);
 	free(s_value);
@@ -86,22 +86,17 @@ void	ft_u_printf(va_list arg, int *count)
 
 void	ft_x_printf(va_list arg, char c, int *count)
 {
-	int		i_value;
-	char	*result;
-	
-	i_value = (int)va_arg(arg, int);
-	if (i_value > 0)
+	unsigned int	i_value;
+	char			*result;
+
+	i_value = (unsigned int)va_arg(arg, unsigned int);
+	if (i_value != 0)
 		result = ft_dtoh(i_value, count);
-	else if (i_value < 0)
-		result = ft_m_dtoh(i_value, count);
 	else
 	{
-		result = malloc(2 * sizeof(char));
-		if (!result)
-			return ;
-		result[0] = '0';
-		result[1] = '\0';
+		ft_putchar('0');
 		*count += 1;
+		return ;
 	}
 	if (c == 'x')
 		ft_putstr(result);
@@ -146,15 +141,15 @@ int	ft_printf(const char *format, ...)
 	return (result);
 }
 
-// int	main(void)
-// {
-// 	int	result;
-// 	int	result2;
-// 	int	test;
+int	main(void)
+{
+	int	result;
+	int	result2;
+	int	test;
 
-// 	test = -9;
-// 	result = ft_printf("p-%p x-%x\n", NULL, 1000);
-// 	result2 = printf("p-%p x-%x\n", NULL, 1000);
-// 	printf("%i\n%i\n", result, result2);
-// 	return (0);
-// }
+	test = -9;
+	result = ft_printf("p-%p x-%x\n", (void *)-1, -1);
+	result2 = printf("p-%p x-%x\n", (void *)-1, -1);
+	printf("%i\n%i\n", result, result2);
+	return (0);
+}
