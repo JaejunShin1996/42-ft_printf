@@ -1,10 +1,10 @@
 NAME	= libftprintf.a
-TEST	= ft_printf.out
+# TEST	= ft_printf.out
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
-SRCS	= ft_printf ft_utils ft_itoa ft_u_itoa ft_dtoh
+SRCS	= ft_printf ft_converter ft_converter2 ft_utils ft_itoa ft_u_itoa ft_hex
 
 CFILES	= $(SRCS:%=%.c)
 OFILES	= $(SRCS:%=%.o)
@@ -13,13 +13,13 @@ $(NAME):
 	$(CC) $(CFLAGS) -c $(CFILES)
 	ar rc $(NAME) $(OFILES)
 	
-make: $(NAME)
-	@gcc -L. -lftprintf $(CFILES) -o $(TEST)
+# make: $(NAME)
+# 	@$(CC) -L. -lftprintf $(CFILES) -o $(TEST)
 	
 all: $(NAME)
 
 clean:
-	@rm -f $(NAME) $(TEST)
+	@rm -f $(NAME)
 	@rm -f $(OFILES)
 
 fclean: clean
